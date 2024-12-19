@@ -8,4 +8,5 @@ import '../buy_models/buy_model.dart';
 ///current homeModelObj
 class BuyController extends GetxController {
   Rx<BuyModel> cartModelObj = BuyModel().obs;
+  RxInt quantity = 0.obs;
 }

@@ -261,7 +261,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
                 // Handle button press
               },
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(280.h, 50.h),
+                minimumSize: Size(260.h, 50.h),
                 padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 20.h),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -374,7 +374,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10.h),
+                          padding: EdgeInsets.symmetric(horizontal: 5.h),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -438,7 +438,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
 
                   // Add New Card Section
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.h),
+                    padding: EdgeInsets.symmetric(horizontal: 5.h),
                     child: Row(
                       children: [
                         Container(

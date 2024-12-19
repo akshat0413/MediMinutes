@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mediminutes/core/app_export.dart';
-import 'package:mediminutes/presentation/buy_screen%20/buy_binding/buy_binding.dart';
-import 'package:mediminutes/presentation/buy_screen%20/buy_screen.dart';
+import 'package:mediminutes/presentation/buy_screen/buy_binding/buy_binding.dart';
+import 'package:mediminutes/presentation/buy_screen/buy_screen.dart';
 import 'package:mediminutes/presentation/cart_screen/binding/cart_binding.dart';
 import 'package:mediminutes/presentation/cart_screen/cart_screen_empty.dart';
 import 'package:mediminutes/presentation/home_screen/home_screen.dart';
@@ -21,7 +21,7 @@ import 'package:mediminutes/presentation/signup_screen/signup_screen.dart';
 import 'package:mediminutes/presentation/splash_screen/binding/spleshscreen_binding.dart';
 import 'package:mediminutes/presentation/splash_screen/spleshscreen_Screen.dart';
 
-import '../presentation/buy_screen /buy_screen2.dart';
+import '../presentation/buy_screen/buy_screen2.dart';
 import '../presentation/cart_screen/cart_screen.dart';
 import '../presentation/cart_screen/cart_screen2.dart';
 import '../presentation/offer_zone_screen/binding/offer_zone_binding.dart';

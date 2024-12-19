@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mediminutes/presentation/buy_screen%20/buy_screen2.dart';
+import 'package:mediminutes/presentation/buy_screen/buy_screen2.dart';
 import 'package:mediminutes/presentation/order_place/binding/order_place_binding.dart';
 import 'package:mediminutes/presentation/order_place/order_place_screen.dart';
 import 'package:mediminutes/presentation/pyment_options/binding/payment_options_binding.dart';
@@ -167,7 +167,7 @@ class CartScreen extends GetWidget<CartController> {
             ),
           ),
           bottomNavigationBar: SizedBox(
-            height: 250.h,
+            height: 230.h,
             child: Column(
               children: [
                 _buildPriceOffer(),
@@ -339,7 +339,7 @@ class CartScreen extends GetWidget<CartController> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.h),
+              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -940,7 +940,7 @@ class CartScreen extends GetWidget<CartController> {
       //  height: 150.h,
       padding: EdgeInsets.symmetric(
         horizontal: 8.h,
-        vertical: 10.h,
+        //vertical: 10.h,
       ),
       decoration: BoxDecoration(
         boxShadow: [
@@ -1007,7 +1007,7 @@ class CartScreen extends GetWidget<CartController> {
             ),
           ),
           SizedBox(
-            height: 40.h,
+            height: 20.h,
           ),
           Container(
             width: double.maxFinite,

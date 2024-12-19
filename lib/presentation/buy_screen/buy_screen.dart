@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:mediminutes/core/app_export.dart';
-import 'package:mediminutes/presentation/buy_screen%20/buy_binding/buy_binding.dart';
-import 'package:mediminutes/presentation/buy_screen%20/buy_screen2.dart';
+import 'package:mediminutes/presentation/buy_screen/buy_binding/buy_binding.dart';
+import 'package:mediminutes/presentation/buy_screen/buy_screen2.dart';
 import 'package:mediminutes/presentation/cart_screen/binding/cart_binding.dart';
 import 'package:mediminutes/presentation/cart_screen/cart_screen2.dart';
 import 'package:mediminutes/presentation/cart_screen/cart_screen_empty.dart';
@@ -115,14 +115,24 @@ class BuyScreen extends GetWidget<BuyController> {
             ),
           ),
           bottomNavigationBar: SizedBox(
-            height: 250.h,
+            height: 210.h,
             child: Column(
               children: [
                 _buildPriceOffer(),
                 _buildActionButtons(),
               ],
             ),
-          )),
+          )
+          // : SizedBox(
+          //     height: 210.h,
+          //     child: Column(
+          //       children: [
+          //         Text('No offers available', style: TextStyle(fontSize: 18)),
+          //         Icon(Icons.info_outline, color: Colors.red),
+          //       ],
+          //     ),
+          //   ),
+          ),
     );
   }
 
@@ -424,68 +434,74 @@ class BuyScreen extends GetWidget<BuyController> {
                 child: ValueListenableBuilder<int>(
                   valueListenable: quantity,
                   builder: (context, qty, _) {
-                    if (qty == 0) {
-                      return ElevatedButton(
-                        onPressed: () {
-                          quantity.value = 1;
-                        },
-                        child: Text(
-                          "ADD",
-                          style: TextStyle(
-                            fontSize: 15.fSize,
-                            color: Color(0XFF19543E),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shadowColor: Colors.grey,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(60),
-                          ),
-                        ),
-                      );
-                    } else {
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(
-                            icon: Icon(
-                              Icons.remove,
-                              size: 20.h,
-                              color: Color(0XFF19543E),
-                            ),
+                    return ValueListenableBuilder<int>(
+                      valueListenable: selectedOffer,
+                      builder: (context, selectedOfferValue, _) {
+                        if (qty == 0) {
+                          return ElevatedButton(
                             onPressed: () {
-                              if (qty > 1) {
-                                quantity.value--;
+                              if (selectedOfferValue == 0) {
+                                Get.snackbar('Alert',
+                                    'Please select an offer before clicking ADD');
                               } else {
-                                quantity.value = 0;
+                                quantity.value = 1;
                               }
                             },
-                          ),
-                          SizedBox(
-                            width: 5.h,
-                          ),
-                          Text(
-                            '$qty',
-                            style: TextStyle(
-                                fontSize: 16.fSize,
+                            child: Text(
+                              "ADD",
+                              style: TextStyle(
+                                fontSize: 15.fSize,
+                                color: Color(0XFF19543E),
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black),
-                          ),
-                          SizedBox(
-                            width: 5.h,
-                          ),
-                          IconButton(
-                            icon: Icon(Icons.add,
-                                size: 20.h, color: Color(0XFF19543E)),
-                            onPressed: () {
-                              quantity.value++;
-                            },
-                          ),
-                        ],
-                      );
-                    }
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              shadowColor: Colors.grey,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(60),
+                              ),
+                            ),
+                          );
+                        } else {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Expanded(
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.remove,
+                                    size: 20.h,
+                                    color: Color(0XFF19543E),
+                                  ),
+                                  onPressed: () {
+                                    if (qty > 1) {
+                                      quantity.value--;
+                                    } else {
+                                      quantity.value = 0;
+                                    }
+                                  },
+                                ),
+                              ),
+                              Text(
+                                '$qty',
+                                style: TextStyle(
+                                    fontSize: 16.fSize,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.add,
+                                    size: 20.h, color: Color(0XFF19543E)),
+                                onPressed: () {
+                                  quantity.value++;
+                                },
+                              ),
+                            ],
+                          );
+                        }
+                      },
+                    );
                   },
                 ),
               ),
@@ -498,6 +514,17 @@ class BuyScreen extends GetWidget<BuyController> {
 
   ///Section Widget
   Widget _buildProductDetail() {
+    final List<String> safetyPoints = [
+      "Follow the dosage prescribed by your doctor. Typically, it's taken 1 tablet every 4 to 6 hours, but do not exceed 4,000 mg (6 tablets) in 24 hours.",
+      "You can take Dolo 650 with or without food. If you experience stomach upset, it's better to take it with food.",
+      "Swallow the tablet with water; do not crush or chew it.",
+      "Avoid consuming alcohol while taking this medicine, as it can increase the risk of liver damage.",
+      "Leave a time gap of 4 hours between each dose of Dolo 650."
+    ];
+    final List<String> benefits = [
+      "Relieves mild to moderate pain (such as headache, toothache, joint pain).",
+      "Lowers fever and relieves the symptoms of cold or flu."
+    ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -540,13 +567,23 @@ class BuyScreen extends GetWidget<BuyController> {
         SizedBox(
           height: 5.h,
         ),
-        Container(
-          width: double.maxFinite, // Constrain the width
-          child: const Text(
-            "• Relieves mild to moderate pain (such as headache, toothache, joint pain)."
-            "\n• Lowers fever and relieves the symptoms of cold or flu).",
-            style: TextStyle(color: Colors.black, fontSize: 14),
-          ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: benefits.map((sentence) {
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("• ", style: TextStyle(fontSize: 18)),
+                Expanded(
+                  child: Text(
+                    sentence,
+                    style: TextStyle(
+                        color: Colors.black, fontSize: 14, fontFamily: 'inter'),
+                  ),
+                ),
+              ],
+            );
+          }).toList(),
         ),
         SizedBox(
           height: 10.h,
@@ -561,13 +598,24 @@ class BuyScreen extends GetWidget<BuyController> {
         SizedBox(
           height: 5.h,
         ),
-        Text(
-            "• Follow the dosage prescribed by your doctor.  Typically, it's taken 1 tablet every 4 to 6 hours,   but do not exceed 4,000 mg (6 tablets) in 24   hours."
-            "\n• You can take Dolo 650 with or without food. If you experience stomach upset, it's better to take it with food."
-            "\n• Swallow the tablet with water; do not crush or chew it."
-            "\n• Avoid consuming alcohol while taking this medicine, as it can increase the risk of liver damage."
-            "\n• Leave a time gap of 4 hours between each dose of Dolo 650.",
-            style: TextStyle(color: Colors.black, fontSize: 14)),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: safetyPoints.map((sentence) {
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("• ", style: TextStyle(fontSize: 18)),
+                Expanded(
+                  child: Text(
+                    sentence,
+                    style: TextStyle(
+                        color: Colors.black, fontSize: 14, fontFamily: 'inter'),
+                  ),
+                ),
+              ],
+            );
+          }).toList(),
+        )
       ],
     );
   }
@@ -591,7 +639,7 @@ class BuyScreen extends GetWidget<BuyController> {
             children: [
               CustomImageView(
                 imagePath: ImageConstant.imgBuyAlcohol,
-                height: 70.h,
+                height: 80.h,
                 width: 40.h,
               ),
               Spacer(),
@@ -614,8 +662,11 @@ class BuyScreen extends GetWidget<BuyController> {
                     height: 5.h,
                   ),
                   Text(
-                    "It is Unsafe to consume alcohol \nwith Dolo 650 tablet.",
-                    style: TextStyle(fontSize: 11.fSize, color: Colors.black),
+                    "It is Unsafe to consume alcohol with Dolo 650 tablet.",
+                    style: TextStyle(
+                        fontSize: 11.fSize,
+                        color: Colors.black,
+                        fontFamily: "inter"),
                   )
                 ],
               ),
@@ -638,7 +689,7 @@ class BuyScreen extends GetWidget<BuyController> {
             children: [
               CustomImageView(
                 imagePath: ImageConstant.imgBuyPragnancy,
-                height: 70.h,
+                height: 60.h,
                 width: 40.h,
               ),
               Spacer(),
@@ -1187,7 +1238,7 @@ class BuyScreen extends GetWidget<BuyController> {
       //  height: 150.h,
       padding: EdgeInsets.symmetric(
         horizontal: 8.h,
-        vertical: 10.h,
+        //vertical: 10.h,
       ),
       decoration: BoxDecoration(
         boxShadow: [
@@ -1254,7 +1305,7 @@ class BuyScreen extends GetWidget<BuyController> {
             ),
           ),
           SizedBox(
-            height: 40.h,
+            height: 20.h,
           ),
           Container(
             width: double.maxFinite,
@@ -1277,7 +1328,7 @@ class BuyScreen extends GetWidget<BuyController> {
                         "See bill summary",
                         style: TextStyle(
                             color: Color(0XFFFF6B46),
-                            fontSize: 14,
+                            fontSize: 12,
                             fontWeight: FontWeight.w500),
                       ),
                     ],
