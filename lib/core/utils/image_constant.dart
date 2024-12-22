@@ -161,8 +161,6 @@ class ImageConstant {
   static String imgBuyParacetamol = '$imagePath/paracetamol.jpeg';
   static String imgBuyParacetamol2 = '$imagePath/paracetamol_2.jpg';
   static String imgBuyParacetamol3 = '$imagePath/paracetamol_3.jpg';
-  static String imgMarketPlace = '$imagePath/market_place.png';
-
   static String imgBuyKidney = '$imagePath/img_Kidneys.svg';
   static String imgFlashOn = '$imagePath/flash_on.png';
   static String imgBuyLiver = '$imagePath/img_liver.svg';
@@ -208,6 +206,8 @@ class ImageConstant {
 
   static String imgArrowDownGray600041 =
       '$imagePath/img_arrow_down_gray_600_04_1.svg';
+
+  static String imgMarketPlace = '$imagePath/market_place.svg';
 
   static String imgCalendarBlueGray200 =
       '$imagePath/img_calendar_blue_gray_200.png';

@@ -232,7 +232,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
               valueListenable: selectedOffer,
               builder: (context, selected, _) {
                 return Transform.scale(
-                  scale: 1.5,
+                  scale: 1.3,
                   child: Radio<int>(
                     value: value,
                     activeColor: Color(0XFF19543E),

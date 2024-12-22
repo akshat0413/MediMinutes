@@ -56,9 +56,9 @@ class CartScreen extends GetWidget<CartController> {
                         height: 20.h,
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.h),
+                        padding: EdgeInsets.symmetric(horizontal: 8.h),
                         child: SizedBox(
-                          width: 340.h,
+                          width: 360.h,
                           height: 45.h,
                           child: Container(
                             decoration: BoxDecoration(
@@ -110,7 +110,7 @@ class CartScreen extends GetWidget<CartController> {
                         height: 20.h,
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.h),
+                        padding: EdgeInsets.symmetric(horizontal: 10.h),
                         child: _buildPriceOfferInfo(),
                       ),
                       SizedBox(
@@ -521,74 +521,6 @@ class CartScreen extends GetWidget<CartController> {
     );
   }
 
-  Widget _buildPriceOffer() {
-    return SizedBox(
-      height: 70.h,
-      width: double.maxFinite,
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Container(
-            width: double.maxFinite,
-            padding: EdgeInsets.only(
-              left: 12.h,
-              top: 10.h,
-              bottom: 10.h,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15.h), // Circular top-left corner
-                topRight: Radius.circular(15.h), // Circular top-right corner
-              ),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft, //Alignment(0, 0.5),
-                end: Alignment.bottomRight, //Alignment(1, 0),
-                colors: [appTheme.red900Cc, appTheme.red300Cc],
-              ),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 12.h),
-                Padding(
-                  padding: EdgeInsets.only(left: 6.h),
-                  child: Text(
-                    "msg_add_items_worth".tr,
-                    style: TextStyle(fontSize: 12.fSize, color: Colors.white),
-                  ),
-                ),
-                SizedBox(height: 10.h),
-                Row(
-                  children: [
-                    Container(
-                      height: 6.h,
-                      width: 120.h,
-                      decoration: BoxDecoration(
-                        color: appTheme.deepOrange40001,
-                        borderRadius: BorderRadius.circular(3.h),
-                      ),
-                    ),
-                    Container(
-                      height: 6.h,
-                      width: 185.h,
-                      decoration: BoxDecoration(
-                        color: Colors.white54,
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(20)),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   ///Widget Section
   Widget _buildPromoCode() {
     final ValueNotifier<int> selectedOffer = ValueNotifier<int>(0);
@@ -926,6 +858,74 @@ class CartScreen extends GetWidget<CartController> {
                   )
                 ],
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPriceOffer() {
+    return SizedBox(
+      height: 70.h,
+      width: double.maxFinite,
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Container(
+            width: double.maxFinite,
+            padding: EdgeInsets.only(
+              left: 12.h,
+              top: 10.h,
+              bottom: 10.h,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(15.h), // Circular top-left corner
+                topRight: Radius.circular(15.h), // Circular top-right corner
+              ),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft, //Alignment(0, 0.5),
+                end: Alignment.bottomRight, //Alignment(1, 0),
+                colors: [appTheme.red900Cc, appTheme.red300Cc],
+              ),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 12.h),
+                Padding(
+                  padding: EdgeInsets.only(left: 6.h),
+                  child: Text(
+                    "msg_add_items_worth".tr,
+                    style: TextStyle(fontSize: 12.fSize, color: Colors.white),
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                Row(
+                  children: [
+                    Container(
+                      height: 6.h,
+                      width: 120.h,
+                      decoration: BoxDecoration(
+                        color: appTheme.deepOrange40001,
+                        borderRadius: BorderRadius.circular(3.h),
+                      ),
+                    ),
+                    Container(
+                      height: 6.h,
+                      width: 185.h,
+                      decoration: BoxDecoration(
+                        color: Colors.white54,
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20)),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
