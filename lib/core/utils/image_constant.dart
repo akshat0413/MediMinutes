@@ -192,6 +192,14 @@ class ImageConstant {
 // Payment Options images
   static String imgHandDiscount = '$imagePath/hand_discount.png';
   static String imgPaytm = '$imagePath/paytm.png';
+  static String imgGpay = '$imagePath/Gpay.png';
+  static String imgRuPay = '$imagePath/rupay.png';
+  static String imgCard = '$imagePath/card.png';
+  static String imgAmazonPayBalance = '$imagePath/amazon_pay.png';
+  static String imgPhonepe = '$imagePath/phonepe.png';
+  static String imgPaylater = '$imagePath/pay_later.png';
+  static String imgPayOnDelivery = '$imagePath/cod.png';
+
 
 //Common images
   static String imgArrowLeftblack90001 =

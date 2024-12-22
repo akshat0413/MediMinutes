@@ -346,7 +346,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
 
                   // Google Pay Row
                   _buildUpiAppRow(
-                    imagePath: ImageConstant.imgPaytm, // Change image for GPay
+                    imagePath: ImageConstant.imgGpay, // Change image for GPay
                     appName: "GooglePay",
                     value: 2,
                     selectedOffer: selectedOffer,
@@ -360,7 +360,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
 
                   // Add New UPI ID Section
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.h),
+                    padding: EdgeInsets.symmetric(horizontal: 10.h),
                     child: Row(
                       children: [
                         Container(
@@ -369,12 +369,12 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: CustomImageView(
-                            imagePath: ImageConstant.imgPaytm,
+                            imagePath: ImageConstant.imgRuPay,
                             height: 50.h,
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5.h),
+                          padding: EdgeInsets.symmetric(horizontal: 10.h),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -438,7 +438,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
 
                   // Add New Card Section
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.h),
+                    padding: EdgeInsets.symmetric(horizontal: 10.h),
                     child: Row(
                       children: [
                         Container(
@@ -447,7 +447,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: CustomImageView(
-                            imagePath: ImageConstant.imgPaytm,
+                            imagePath: ImageConstant.imgCard,
                             height: 50.h,
                           ),
                         ),
@@ -457,14 +457,14 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Add new UPI ID",
+                                "Add new Card ",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: "inter",
                                     fontSize: 16.fSize),
                               ),
                               Text(
-                                "We support all major UPI payment apps",
+                                "We support all Credit/Debit Cards",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: "inter",
@@ -567,12 +567,12 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: CustomImageView(
-                            imagePath: ImageConstant.imgPaytm,
+                            imagePath: ImageConstant.imgAmazonPayBalance,
                             height: 50.h,
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10.h),
+                          padding: EdgeInsets.symmetric(horizontal: 8.h),
                           child: Text(
                             "Amazon Pay Balance",
                             style: TextStyle(
@@ -610,7 +610,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: CustomImageView(
-                            imagePath: ImageConstant.imgPaytm,
+                            imagePath: ImageConstant.imgPhonepe,
                             height: 50.h,
                           ),
                         ),
@@ -669,7 +669,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
 
                   // Paytm UPI Row
                   _buildUpiAppRow(
-                    imagePath: ImageConstant.imgPaytm,
+                    imagePath: ImageConstant.imgPaylater,
                     appName: "Pay Later",
                     value: 3,
                     selectedOffer: selectedOffer,
@@ -681,7 +681,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
 
                   // Google Pay Row
                   _buildUpiAppRow(
-                    imagePath: ImageConstant.imgPaytm, // Change image for GPay
+                    imagePath: ImageConstant.imgPayOnDelivery, // Change image for GPay
                     appName: "Pay on Delivery",
                     value: 4,
                     selectedOffer: selectedOffer,
