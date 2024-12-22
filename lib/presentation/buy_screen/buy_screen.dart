@@ -1,138 +1,141 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:mediminutes/core/app_export.dart';
 import 'package:mediminutes/presentation/buy_screen/buy_binding/buy_binding.dart';
 import 'package:mediminutes/presentation/buy_screen/buy_screen2.dart';
 import 'package:mediminutes/presentation/cart_screen/binding/cart_binding.dart';
 import 'package:mediminutes/presentation/cart_screen/cart_screen2.dart';
-import 'package:mediminutes/presentation/cart_screen/cart_screen_empty.dart';
-import 'package:mediminutes/widgets/custom_elevated_button.dart';
 
-import '../../widgets/app_bar/appbar_leading_image.dart';
 import '../../widgets/app_bar/appbar_title.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../cart_screen/cart_screen.dart';
 import 'buy_controller/buy_controller.dart';
 
+// ignore: must_be_immutable
 class BuyScreen extends GetWidget<BuyController> {
   BuyScreen({Key? key})
       : super(
           key: key,
         );
   var isFavorite = false.obs; // Observable variable for favorite state
+  var isBottomNavBarVisible =
+      false.obs; // Observable for bottom navigation bar visibility
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: _buildHeader(),
-          body: SizedBox(
-            width: double.maxFinite,
-            child: SingleChildScrollView(
-              child: Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(horizontal: 16.h),
-                child: Column(
-                  children: [
-                    SizedBox(height: 35.h),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Container(
-                        child: Row(
-                          children: [
-                            Card(
-                              elevation: 1,
-                              child: Container(
-                                child: CustomImageView(
-                                  imagePath: ImageConstant.imgBuyParacetamol3,
-                                  height: 200.h,
-                                  radius: BorderRadius.circular(20.h),
-                                  // width: double.maxFinite,
-                                ),
+        appBar: _buildHeader(),
+        body: SizedBox(
+          width: double.maxFinite,
+          child: SingleChildScrollView(
+            child: Container(
+              width: double.maxFinite,
+              padding: EdgeInsets.symmetric(horizontal: 16.h),
+              child: Column(
+                children: [
+                  SizedBox(height: 35.h),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Container(
+                      child: Row(
+                        children: [
+                          Card(
+                            elevation: 1,
+                            child: Container(
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgBuyParacetamol3,
+                                height: 200.h,
+                                radius: BorderRadius.circular(20.h),
+                                // width: double.maxFinite,
                               ),
                             ),
-                            SizedBox(
-                              width: 6.h,
-                            ),
-                            Card(
-                              elevation: 1,
-                              child: Container(
-                                child: CustomImageView(
-                                  imagePath: ImageConstant.imgBuyParacetamol2,
-                                  height: 200.h,
-                                  radius: BorderRadius.circular(20.h),
-                                  // width: double.maxFinite,
-                                ),
+                          ),
+                          SizedBox(
+                            width: 6.h,
+                          ),
+                          Card(
+                            elevation: 1,
+                            child: Container(
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgBuyParacetamol2,
+                                height: 200.h,
+                                radius: BorderRadius.circular(20.h),
+                                // width: double.maxFinite,
                               ),
                             ),
-                            SizedBox(
-                              width: 6.h,
-                            ),
-                            Card(
-                              elevation: 1,
-                              child: Container(
-                                child: CustomImageView(
-                                  imagePath: ImageConstant.imgBuyParacetamol,
-                                  height: 200.h,
-                                  radius: BorderRadius.circular(20.h),
-                                  // width: double.maxFinite,
-                                ),
+                          ),
+                          SizedBox(
+                            width: 6.h,
+                          ),
+                          Card(
+                            elevation: 1,
+                            child: Container(
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgBuyParacetamol,
+                                height: 200.h,
+                                radius: BorderRadius.circular(20.h),
+                                // width: double.maxFinite,
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(height: 10.h),
-                    SizedBox(
-                      width: double.maxFinite,
-                      child: _buildProductTitle(),
-                    ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    SizedBox(
-                      width: double.maxFinite,
-                      child: _buildProductDetail(),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    SizedBox(
-                      width: double.maxFinite,
-                      child: _buildSafetyAdvice(),
-                    ),
-                    SizedBox(
-                      height: 15.h,
-                    ),
-                    SizedBox(
-                      width: double.maxFinite,
-                      child: _buildSubstitutes(),
-                    )
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 10.h),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: _buildProductTitle(),
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: _buildProductDetail(),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: _buildSafetyAdvice(),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: _buildSubstitutes(),
+                  )
+                ],
               ),
             ),
           ),
-          bottomNavigationBar: SizedBox(
-            height: 210.h,
-            child: Column(
-              children: [
-                _buildPriceOffer(),
-                _buildActionButtons(),
-              ],
-            ),
-          )
-          // : SizedBox(
-          //     height: 210.h,
-          //     child: Column(
-          //       children: [
-          //         Text('No offers available', style: TextStyle(fontSize: 18)),
-          //         Icon(Icons.info_outline, color: Colors.red),
-          //       ],
-          //     ),
-          //   ),
-          ),
+        ),
+        bottomNavigationBar: Obx(() {
+          return isBottomNavBarVisible.value
+              ? SizedBox(
+                  height: 210.h,
+                  child: Column(
+                    children: [
+                      _buildPriceOffer(),
+                      _buildActionButtons(),
+                    ],
+                  ),
+                )
+              : SizedBox.shrink(); // Hide the bottom navigation bar
+        }),
+        // : SizedBox(
+        //     height: 210.h,
+        //     child: Column(
+        //       children: [
+        //         Text('No offers available', style: TextStyle(fontSize: 18)),
+        //         Icon(Icons.info_outline, color: Colors.red),
+        //       ],
+        //     ),
+        //   ),
+      ),
     );
   }
 
@@ -445,6 +448,8 @@ class BuyScreen extends GetWidget<BuyController> {
                                     'Please select an offer before clicking ADD');
                               } else {
                                 quantity.value = 1;
+                                isBottomNavBarVisible.value =
+                                    true; // Show bottom navigation bar
                               }
                             },
                             child: Text(
@@ -479,6 +484,8 @@ class BuyScreen extends GetWidget<BuyController> {
                                       quantity.value--;
                                     } else {
                                       quantity.value = 0;
+                                      isBottomNavBarVisible.value =
+                                          false; // Hide bottom navigation bar
                                     }
                                   },
                                 ),
@@ -486,9 +493,10 @@ class BuyScreen extends GetWidget<BuyController> {
                               Text(
                                 '$qty',
                                 style: TextStyle(
-                                    fontSize: 16.fSize,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
+                                  fontSize: 16.fSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
                               ),
                               IconButton(
                                 icon: Icon(Icons.add,
@@ -551,9 +559,20 @@ class BuyScreen extends GetWidget<BuyController> {
         SizedBox(
           height: 5.h,
         ),
-        Text(
-            "Dolo 650 Tablet is a paracetamol-based medication commonly used to relieve pain and fever from headaches, migraines, toothaches, sore throats, menstrual cramps, arthritis, muscle aches, and the common cold. It was widely used during the COVID-19 pandemic.\n\nTake it as prescribed by your doctor, preferably with food to prevent stomach upset. Limit to four doses per day, ensuring a minimum 4-hour gap between doses.\n\nWhile generally safe, it may cause nausea, vomiting, or stomach pain in some cases. Avoid use if you have liver or kidney issues, allergies, or conflicting medications. Follow medical advice, using the lowest effective dose for the shortest time. Safe for use during pregnancy and breastfeeding. ",
-            style: TextStyle(color: Colors.black, fontSize: 13)),
+        RichText(
+          textAlign: TextAlign.justify,
+          text: TextSpan(
+            text:
+                "Dolo 650 Tablet is a paracetamol-based medication commonly used to relieve pain and fever from headaches, migraines, toothaches, sore throats, menstrual cramps, arthritis, muscle aches, and the common cold. It was widely used during the COVID-19 pandemic.\n\n"
+                "Take it as prescribed by your doctor, preferably with food to prevent stomach upset. Limit to four doses per day, ensuring a minimum 4-hour gap between doses.\n\n"
+                "While generally safe, it may cause nausea, vomiting, or stomach pain in some cases. Avoid use if you have liver or kidney issues, allergies, or conflicting medications. Follow medical advice, using the lowest effective dose for the shortest time. Safe for use during pregnancy and breastfeeding.",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 13,
+              fontFamily: 'inter',
+            ),
+          ),
+        ),
         SizedBox(
           height: 10.h,
         ),
@@ -633,13 +652,13 @@ class BuyScreen extends GetWidget<BuyController> {
               color: Colors.black),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.h),
+          padding: EdgeInsets.symmetric(horizontal: 25.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomImageView(
                 imagePath: ImageConstant.imgBuyAlcohol,
-                height: 80.h,
+                height: 90.h,
                 width: 40.h,
               ),
               Spacer(),
@@ -662,7 +681,7 @@ class BuyScreen extends GetWidget<BuyController> {
                     height: 5.h,
                   ),
                   Text(
-                    "It is Unsafe to consume alcohol with Dolo 650 tablet.",
+                    "It is Unsafe to consume alcohol with \nDolo 650 tablet.",
                     style: TextStyle(
                         fontSize: 11.fSize,
                         color: Colors.black,
@@ -683,14 +702,14 @@ class BuyScreen extends GetWidget<BuyController> {
           height: 10.h,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.h),
+          padding: EdgeInsets.symmetric(horizontal: 25.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomImageView(
                 imagePath: ImageConstant.imgBuyPragnancy,
                 height: 60.h,
-                width: 40.h,
+                width: 30.h,
               ),
               Spacer(),
               Column(
@@ -730,14 +749,14 @@ class BuyScreen extends GetWidget<BuyController> {
           height: 10.h,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.h),
+          padding: EdgeInsets.symmetric(horizontal: 26.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomImageView(
                 imagePath: ImageConstant.imgBuyFeeding,
                 height: 70.h,
-                width: 40.h,
+                width: 35.h,
               ),
               Spacer(),
               Column(
@@ -777,14 +796,17 @@ class BuyScreen extends GetWidget<BuyController> {
           height: 10.h,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.h),
+          padding: EdgeInsets.symmetric(horizontal: 15.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomImageView(
-                imagePath: ImageConstant.imgBuyKidney,
-                height: 70.h,
-                width: 40.h,
+              Padding(
+                padding: EdgeInsets.only(left: 6.h),
+                child: CustomImageView(
+                  imagePath: ImageConstant.imgBuyKidney,
+                  height: 70.h,
+                  width: 40.h,
+                ),
               ),
               Spacer(),
               Column(
@@ -824,14 +846,17 @@ class BuyScreen extends GetWidget<BuyController> {
           height: 10.h,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.h),
+          padding: EdgeInsets.symmetric(horizontal: 15.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomImageView(
-                imagePath: ImageConstant.imgBuyLiver,
-                height: 70.h,
-                width: 40.h,
+              Padding(
+                padding: EdgeInsets.only(left: 10.h),
+                child: CustomImageView(
+                  imagePath: ImageConstant.imgBuyLiver,
+                  height: 70.h,
+                  width: 40.h,
+                ),
               ),
               Spacer(),
               Column(
@@ -1169,7 +1194,9 @@ class BuyScreen extends GetWidget<BuyController> {
                 child: Text(
                   "See all",
                   style: TextStyle(
-                      fontSize: 15.fSize, color: theme.colorScheme.primary),
+                    fontSize: 15.fSize,
+                    color: const Color.fromARGB(255, 56, 128, 58),
+                  ),
                 )),
           ),
         )
@@ -1215,13 +1242,27 @@ class BuyScreen extends GetWidget<BuyController> {
                   ),
                 ),
                 SizedBox(height: 10.h),
-                Container(
-                  height: 6.h,
-                  width: 70.h,
-                  decoration: BoxDecoration(
-                    color: appTheme.deepOrange40001,
-                    borderRadius: BorderRadius.circular(3.h),
-                  ),
+                Row(
+                  children: [
+                    Container(
+                      height: 6.h,
+                      width: 120.h,
+                      decoration: BoxDecoration(
+                        color: appTheme.deepOrange40001,
+                        borderRadius: BorderRadius.circular(3.h),
+                      ),
+                    ),
+                    Container(
+                      height: 6.h,
+                      width: 185.h,
+                      decoration: BoxDecoration(
+                        color: Colors.white54,
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20)),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
