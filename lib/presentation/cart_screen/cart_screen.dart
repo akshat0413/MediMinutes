@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediminutes/presentation/buy_screen/buy_binding/buy_binding.dart';
 import 'package:mediminutes/presentation/buy_screen/buy_screen2.dart';
 import 'package:mediminutes/presentation/order_place/binding/order_place_binding.dart';
 import 'package:mediminutes/presentation/order_place/order_place_screen.dart';
@@ -247,7 +248,7 @@ class CartScreen extends GetWidget<CartController> {
   Widget _buildPriceOfferInfo() {
     return Container(
       height: 105.h,
-      width: double.maxFinite,
+      width: 340.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.h),
         gradient: LinearGradient(
@@ -261,7 +262,7 @@ class CartScreen extends GetWidget<CartController> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 30.h),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -270,7 +271,6 @@ class CartScreen extends GetWidget<CartController> {
               padding: EdgeInsets.symmetric(vertical: 10.h),
               child: Row(
                 children: [
-                  SizedBox(width: 5.h),
                   CustomImageView(
                     imagePath: ImageConstant.imgFlashOn,
                     height: 30.h,
@@ -297,7 +297,7 @@ class CartScreen extends GetWidget<CartController> {
               children: [
                 Container(
                   height: 6.h,
-                  width: 60.h,
+                  width: 110.h,
                   decoration: BoxDecoration(
                     color: appTheme.deepOrange40001,
                     borderRadius: BorderRadius.circular(3.h),
@@ -305,7 +305,7 @@ class CartScreen extends GetWidget<CartController> {
                 ),
                 Container(
                   height: 6.h,
-                  width: 205.h,
+                  width: 170.h,
                   decoration: BoxDecoration(
                     color: Colors.white54,
                     borderRadius: BorderRadius.only(
@@ -875,7 +875,7 @@ class CartScreen extends GetWidget<CartController> {
           Container(
             width: double.maxFinite,
             padding: EdgeInsets.only(
-              left: 12.h,
+              left: 20.h,
               top: 10.h,
               bottom: 10.h,
             ),
@@ -899,7 +899,10 @@ class CartScreen extends GetWidget<CartController> {
                   padding: EdgeInsets.only(left: 6.h),
                   child: Text(
                     "msg_add_items_worth".tr,
-                    style: TextStyle(fontSize: 12.fSize, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 12.fSize,
+                        fontFamily: 'inter',
+                        color: Colors.white),
                   ),
                 ),
                 SizedBox(height: 10.h),
@@ -1023,15 +1026,15 @@ class CartScreen extends GetWidget<CartController> {
                         "₹109",
                         style: TextStyle(
                             color: Colors.black,
-                            fontFamily: 'inter',
                             fontSize: 22,
+                            fontFamily: 'inter',
                             fontWeight: FontWeight.w500),
                       ),
                       Text(
                         "See bill summary",
                         style: TextStyle(
                             color: Color(0XFFFF6B46),
-                            fontSize: 14,
+                            fontSize: 12,
                             fontWeight: FontWeight.w500),
                       ),
                     ],

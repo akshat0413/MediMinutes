@@ -232,7 +232,7 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
               valueListenable: selectedOffer,
               builder: (context, selected, _) {
                 return Transform.scale(
-                  scale: 1.3,
+                  scale: 1.2,
                   child: Radio<int>(
                     value: value,
                     activeColor: Color(0XFF19543E),
@@ -681,7 +681,8 @@ class PaymentOptionsScreen extends GetWidget<PaymentOptionsController> {
 
                   // Google Pay Row
                   _buildUpiAppRow(
-                    imagePath: ImageConstant.imgPayOnDelivery, // Change image for GPay
+                    imagePath:
+                        ImageConstant.imgPayOnDelivery, // Change image for GPay
                     appName: "Pay on Delivery",
                     value: 4,
                     selectedOffer: selectedOffer,

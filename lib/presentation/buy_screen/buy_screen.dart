@@ -1214,7 +1214,7 @@ class BuyScreen extends GetWidget<BuyController> {
           Container(
             width: double.maxFinite,
             padding: EdgeInsets.only(
-              left: 12.h,
+              left: 20.h,
               top: 10.h,
               bottom: 10.h,
             ),
@@ -1238,7 +1238,10 @@ class BuyScreen extends GetWidget<BuyController> {
                   padding: EdgeInsets.only(left: 6.h),
                   child: Text(
                     "msg_add_items_worth".tr,
-                    style: TextStyle(fontSize: 12.fSize, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 12.fSize,
+                        fontFamily: 'inter',
+                        color: Colors.white),
                   ),
                 ),
                 SizedBox(height: 10.h),
@@ -1361,6 +1364,7 @@ class BuyScreen extends GetWidget<BuyController> {
                       Text(
                         "₹109",
                         style: TextStyle(
+                            fontFamily: 'inter',
                             color: Colors.black,
                             fontSize: 22,
                             fontWeight: FontWeight.w500),
