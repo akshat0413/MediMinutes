@@ -68,7 +68,7 @@ class ThemeHelper {
 class TextThemes {
   static TextTheme textTheme(ColorScheme colorScheme) => TextTheme(
         bodyLarge: TextStyle(
-          color: appTheme.black90001,
+          color: appTheme.whiteA700,
           fontSize: 16.fSize,
           fontFamily: 'Inter',
           fontWeight: FontWeight.w400,
@@ -163,8 +163,9 @@ class TextThemes {
 /// Class containing the supported color schemes.
 class ColorSchemes {
   static final lightCodeColorScheme = ColorScheme.light(
-    primary: Color(0XFFA8D5BA),
+    primary: Color(0XFFADCCA3).withOpacity(0.7), tertiary: Color(0XFF19543E),
     primaryContainer: Color(0XFFFF0900),
+    // primaryFixedDim: Color(0XFF19543E),
     secondaryContainer: Color(0XFFB2DAC2),
     errorContainer: Color(0XFF4285F4),
     onError: Color(0XFFC7C7CC),
@@ -215,6 +216,7 @@ class LightCodeColors {
 
 // DeepPurple
   Color get deepPurple50 => Color(0XFFEEE6FF);
+  Color get deepPurpleD7 => Color.fromARGB(255, 38, 0, 255);
 // Gray
   Color get gray100 => Color(0XFFF2F3F4);
   Color get gray10001 => Color(0XFFECFFF4);

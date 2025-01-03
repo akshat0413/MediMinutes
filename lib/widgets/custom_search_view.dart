@@ -111,17 +111,21 @@ class CustomSearchView extends StatelessWidget {
       );
   InputDecoration get decoration => InputDecoration(
         hintText: hintText ?? "",
-        hintStyle: hintStyle ?? CustomTextStyles.bodyMediumInterGray50002,
+        hintStyle: hintStyle ?? CustomTextStyles.bodyMediumBlack90001,
         prefixIcon: prefix ??
             Container(
               margin: EdgeInsets.symmetric(
-                horizontal: 16.h,
-                vertical: 12.h,
+                horizontal: 2.h,
               ),
-              child: CustomImageView(
-                imagePath: ImageConstant.imgSearch,
-                height: 16.h,
-                width: 16.h,
+              child: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(
+                  Icons.reply,
+                  color: Color(0XFF19543E),
+                  size: 28.h,
+                ),
               ),
             ),
         prefixIconConstraints: prefixConstraints ??
@@ -137,7 +141,8 @@ class CustomSearchView extends StatelessWidget {
                 onPressed: () => controller!.clear(),
                 icon: Icon(
                   Icons.clear,
-                  color: Colors.grey.shade600,
+                  color: Color(0XFF19543E),
+                  size: 28,
                 ),
               ),
             ),
@@ -165,7 +170,7 @@ class CustomSearchView extends StatelessWidget {
                 ))
             .copyWith(
           borderSide: BorderSide(
-            color: theme.colorScheme.primary,
+            color: Colors.grey,
             width: 1,
           ),
         ),

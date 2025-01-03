@@ -14,7 +14,7 @@ class ListmedicinesItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 56.h,
+      width: 57.h,
       child: Column(
         children: [
           Container(
@@ -29,7 +29,7 @@ class ListmedicinesItemWidget extends StatelessWidget {
                   height: 44.h,
                   width: double.maxFinite,
                   radius: BorderRadius.circular(
-                    22.0.h,
+                    23.0.h,
                   ),
                 ),
                 CustomImageView(
@@ -43,8 +43,12 @@ class ListmedicinesItemWidget extends StatelessWidget {
           SizedBox(height: 12.h),
           Text(
             listmedicinesItemModelObj.medicinesFour!.value,
-            overflow: TextOverflow.ellipsis,
-            style: CustomTextStyles.bodySmallBluegray90004_1,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: "inter",
+              fontSize: 8.fSize,
+              fontWeight: FontWeight.w900,
+            ),
           )
         ],
       ),

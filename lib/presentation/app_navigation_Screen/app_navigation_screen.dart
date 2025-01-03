@@ -78,6 +78,11 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               onTapScreenTitle(AppRoutes.homeScreen),
                         ),
                         _buildScreenTitle(
+                          screenTitle: "Sreach Screen",
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.searchScreen),
+                        ),
+                        _buildScreenTitle(
                           screenTitle: "Profilr screen",
                           onTapScreenTitle: () =>
                               onTapScreenTitle(AppRoutes.profileScreen),

@@ -34,8 +34,8 @@ class LoginScreen extends GetWidget<LoginController> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(bottom: 124.h),
-                          padding: EdgeInsets.symmetric(horizontal: 24.h),
+                          margin: EdgeInsets.only(bottom: 100.h),
+                          padding: EdgeInsets.symmetric(horizontal: 14.h),
                           width: double.maxFinite,
                           child: Row(
                             children: [
@@ -265,9 +265,6 @@ class LoginScreen extends GetWidget<LoginController> {
                                             style: CustomTextStyles
                                                 .bodySmallOpenSansGray60001,
                                           ),
-                                          SizedBox(
-                                            width: 6.h,
-                                          ),
                                           TextButton(
                                             onPressed: () {
                                               Get.toNamed(
@@ -275,8 +272,8 @@ class LoginScreen extends GetWidget<LoginController> {
                                             },
                                             child: Text(
                                               "lbl_sign_up".tr,
-                                              style: CustomTextStyles
-                                                  .labelLargeOpenSansPrimary,
+                                              style: TextStyle(
+                                                  color: Color(0XFF19543e)),
                                             ),
                                           ),
                                         ],
@@ -309,7 +306,7 @@ class LoginScreen extends GetWidget<LoginController> {
         width: double.maxFinite,
         padding: EdgeInsets.symmetric(
           horizontal: 14.h,
-          vertical: 34.h,
+          vertical: 50.h,
         ),
         decoration: BoxDecoration(
           color: theme.colorScheme.primary,
@@ -320,7 +317,7 @@ class LoginScreen extends GetWidget<LoginController> {
           children: [
             Container(
               width: double.maxFinite,
-              margin: EdgeInsets.only(left: 6.h),
+              margin: EdgeInsets.only(left: 2.h),
               child: Column(
                 children: [
                   Row(
@@ -331,10 +328,10 @@ class LoginScreen extends GetWidget<LoginController> {
                       CustomImageView(
                         imagePath: ImageConstant.imgLogo,
                         height: 44.h,
-                        width: 50.h,
+                        width: 46.h,
                       ),
                       SizedBox(
-                        width: 4.h,
+                        width: 2.h,
                       ),
                       Align(
                         alignment: Alignment.center,
@@ -343,11 +340,19 @@ class LoginScreen extends GetWidget<LoginController> {
                             children: [
                               TextSpan(
                                 text: "lbl_medi".tr,
-                                style: theme.textTheme.headlineLarge,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "inter",
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30.fSize),
                               ),
                               TextSpan(
                                 text: "lbl_minutes".tr,
-                                style: theme.textTheme.headlineLarge,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "inter",
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30.fSize),
                               ),
                             ],
                           ),
@@ -357,11 +362,15 @@ class LoginScreen extends GetWidget<LoginController> {
                     ],
                   ),
                   SizedBox(
-                    height: 40.h,
+                    height: 35.h,
                   ),
                   Text(
                     "msg_sign_in_to_your".tr,
-                    style: CustomTextStyles.headlineSmallGray90006,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: "inter",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22.fSize),
                   ),
                   SizedBox(
                     height: 6.h,

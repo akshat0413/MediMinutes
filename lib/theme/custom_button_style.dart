@@ -29,6 +29,14 @@ class CustomButtonStyles {
         elevation: 0,
         padding: EdgeInsets.zero,
       );
+  static ButtonStyle get fillPurple => ElevatedButton.styleFrom(
+        backgroundColor: appTheme.deepPurpleD7.withOpacity(0.43),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5.h),
+        ),
+        elevation: 0,
+        padding: EdgeInsets.zero,
+      );
 // text button style
   static ButtonStyle get none => ButtonStyle(
         backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent),
@@ -108,6 +116,17 @@ class CustomButtonStyles {
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(6.h),
+        ),
+        padding: EdgeInsets.zero,
+      );
+  static ButtonStyle get outlineprimaryContainer => OutlinedButton.styleFrom(
+        backgroundColor: theme.colorScheme.onPrimaryContainer,
+        side: BorderSide(
+          color: theme.colorScheme.onPrimaryContainer,
+          width: 1,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.h),
         ),
         padding: EdgeInsets.zero,
       );

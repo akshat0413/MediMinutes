@@ -8,6 +8,7 @@ import 'package:mediminutes/presentation/home_screen/models/listaccucheck_item_m
 import 'package:mediminutes/presentation/home_screen/models/listface_wash_item_model.dart';
 import 'package:mediminutes/presentation/home_screen/models/listmedicines_item_model.dart';
 import 'package:mediminutes/presentation/home_screen/models/sliderupto_item_model.dart';
+import 'package:mediminutes/presentation/home_screen/search_screen.dart';
 import 'package:mediminutes/presentation/home_screen/widgets/consultationlist_item_widget.dart';
 import 'package:mediminutes/presentation/home_screen/widgets/gridnutritionalgrid_item_widget.dart';
 import 'package:mediminutes/presentation/home_screen/widgets/listaccucheck_item_widget.dart';
@@ -15,9 +16,11 @@ import 'package:mediminutes/presentation/home_screen/widgets/listface_wash_item_
 import 'package:mediminutes/presentation/home_screen/widgets/listmedicines_item_widget.dart';
 import 'package:mediminutes/presentation/home_screen/widgets/listnutritional_item_widget.dart';
 import 'package:mediminutes/presentation/home_screen/widgets/sliderupto_item_widget.dart';
+import 'package:mediminutes/presentation/my_order_search_screen/binding/my_order_search_binding.dart';
 import 'package:mediminutes/presentation/notification_screen/binding/notification_binding.dart';
 import 'package:mediminutes/presentation/notification_screen/notification_screen.dart';
 import 'package:mediminutes/presentation/offer_zone_screen/offer_zone_screen.dart';
+import 'package:mediminutes/presentation/search_screen/binding/search_screen.dart';
 import 'package:mediminutes/widgets/app_bar/appbar_leading_image_one.dart';
 import 'package:mediminutes/widgets/app_bar/appbar_subtitle.dart';
 import 'package:mediminutes/widgets/app_bar/appbar_trailling_image.dart';
@@ -29,6 +32,7 @@ import '../../core/app_export.dart';
 import '../../routes/app_routes.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../offer_zone_screen/binding/offer_zone_binding.dart';
+import '../search_screen/search_screen.dart';
 
 // ignore: must_be_immutable
 class HomeInitialPage extends StatelessWidget {
@@ -69,6 +73,10 @@ class HomeInitialPage extends StatelessWidget {
                           _buildConsultationList(),
                           SizedBox(height: 16.h),
                           _buildOurServices(),
+                          SizedBox(
+                            height: 16.h,
+                          ),
+                          _buildZeroShippingCharges(),
                           SizedBox(height: 16.h),
                           _buildUploadPrescription(),
                           SizedBox(height: 12.h),
@@ -142,75 +150,78 @@ class HomeInitialPage extends StatelessWidget {
     );
   }
 
-  /// Section Widget
   Widget _buildSearchSection() {
     return Container(
       width: double.maxFinite,
       padding: EdgeInsets.symmetric(vertical: 4.h),
       decoration: BoxDecoration(
-        color: theme.colorScheme.primary,
+        color: Colors.white,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomAppBar(
+            styleType: Style.whiteA70001,
             height: 50.h,
             leadingWidth: 65.h,
-            leading: AppbarLeadingImageOne(
-              imagePath: ImageConstant.imgShape,
-              height: 40.h,
-              width: 40.h,
-              margin: EdgeInsets.only(left: 15.h),
+            leading: Icon(
+              Icons.location_on_outlined,
+              color: Color(0XFF006FFD),
+              size: 30.h,
             ),
             title: SizedBox(
               width: double.maxFinite,
               child: AppbarSubTitle(
                 text: "msg_delivery_to_nandanvan".tr,
-                margin: EdgeInsets.only(left: 10.h),
               ),
             ),
             actions: [
               IconButton(
-                  onPressed: () {
-                    // Add functionality for the wallet icon button
-                    print('Wallet icon clicked!');
-                  },
-                  icon: Icon(Icons.wallet_rounded)),
-              IconButton(
-                  onPressed: () {
-                    Get.to(
-                      () => NotificationScreen(),
-                      binding: NotificationBinding(),
-                    );
-                    // Add functionality for the bell icon button
-                    print('Bell icon clicked!');
-                  },
-                  icon: Icon(Icons.notifications_none_sharp)),
-              SizedBox(
-                width: 7,
-              )
+                onPressed: () {
+                  print('Wallet icon clicked!');
+                },
+                icon: Icon(
+                  Icons.edit_note,
+                  color: Color(0XFF006FFD),
+                  size: 30,
+                ),
+              ),
+              SizedBox(width: 7),
             ],
           ),
-          SizedBox(height: 8.h),
-          Container(
-            width: double.maxFinite,
-            margin: EdgeInsets.symmetric(horizontal: 16.h),
-            child: Column(
-              children: [
-                CustomSearchView(
-                  controller: controller.searchController,
-                  hintText: "lbl_search".tr,
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: 14.h,
-                    vertical: 4.h,
+          GestureDetector(
+            onTap: () {
+              // Navigate to the SearchScreen
+              Get.to(() => SearchScreen(), binding: SearchScreenBinding());
+            },
+            child: Container(
+              width: double.maxFinite,
+              margin: EdgeInsets.symmetric(horizontal: 16.h),
+              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.h),
+              decoration: BoxDecoration(
+                color: Colors.white, // Background color for the button
+                borderRadius: BorderRadius.circular(30.h),
+                border: Border.all(color: Colors.grey[400]!), // Border color
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.search,
+                    color: Colors.grey[600],
                   ),
-                ),
-              ],
+                  SizedBox(width: 8.h),
+                  Text(
+                    "Search for medicines, pharmacies, etc.",
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 10.h,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          SizedBox(
-            height: 4.h,
-          ),
+          SizedBox(height: 4.h),
         ],
       ),
     );
@@ -293,11 +304,84 @@ class HomeInitialPage extends StatelessWidget {
     );
   }
 
+  Widget _buildZeroShippingCharges() {
+    return Container(
+      height: 160.h,
+      width: double.maxFinite,
+      decoration: BoxDecoration(
+          color: Color(0XFFFFDD67).withOpacity(0.53),
+          borderRadius: BorderRadius.circular(20.h)),
+      child: Row(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 15.h),
+            child: CustomImageView(
+              imagePath: ImageConstant.imgScooter,
+              height: 95.h,
+              //width: 116.h,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 15.h),
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgText2,
+                    height: 60.h,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.h),
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgText,
+                    height: 17.h,
+                  ),
+                ),
+                SizedBox(
+                  height: 15.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 35.h),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Add your onPressed action here
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0XFF9468AC), // Background color
+                      shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(8), // Rounded border
+                      ),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 25.h, vertical: 25.h), // Padding
+                    ),
+                    child: Text(
+                      "SHOP NOW",
+                      style: TextStyle(
+                        color: Colors.white, // Text color
+                        fontSize: 10.fSize, // Text size
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   Widget _buildUploadThreen() {
     return CustomElevatedButton(
       width: 108.h,
-      text: "lbl_order_now".tr.toUpperCase(),
-      buttonStyle: CustomButtonStyles.fillGray,
+      height: 25.h,
+      text: "upload now".tr.toUpperCase(),
+      buttonStyle: CustomButtonStyles.fillPurple,
       buttonTextStyle: CustomTextStyles.labelLargeLatoOnPrimaryContainer,
     );
   }
@@ -306,13 +390,13 @@ class HomeInitialPage extends StatelessWidget {
   Widget _buildUploadPrescription() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 8.h, vertical: 8.h),
+      margin: EdgeInsets.symmetric(vertical: 8.h),
       padding: EdgeInsets.symmetric(
         horizontal: 20.h,
-        vertical: 25.h,
+        vertical: 10.h,
       ),
       decoration: BoxDecoration(
-        color: theme.colorScheme.primary,
+        color: Color(0XFFD7D0FF),
         borderRadius: BorderRadiusStyle.roundedBorder14,
       ),
       child: Column(
@@ -321,19 +405,23 @@ class HomeInitialPage extends StatelessWidget {
         children: [
           Text(
             "msg_upload_prescription".tr.toUpperCase(),
-            style: CustomTextStyles.titleMediumBeVietnamProGray90003,
+            style: TextStyle(
+                fontSize: 13.fSize,
+                color: Colors.black,
+                fontFamily: 'be vietnam pro'),
           ),
-          SizedBox(height: 4.h),
+          SizedBox(height: 8.h),
           SizedBox(
             width: 214.h,
-            child: Text(
-              "msg_upload_a_prescription".tr,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: CustomTextStyles.bodySmallLatoGray90003.copyWith(
-                height: 1.36,
-              ),
-            ),
+            child: Text("msg_upload_a_prescription".tr,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                softWrap: false,
+                style: TextStyle(
+                    fontFamily: "lato",
+                    fontSize: 10.fSize,
+                    color: Colors.black,
+                    height: 1.8)),
           ),
           SizedBox(height: 4.h),
           SizedBox(
@@ -346,13 +434,14 @@ class HomeInitialPage extends StatelessWidget {
                   child: SizedBox(
                     width: 88.h,
                     child: Text(
-                      "msg_flat_25_off_on".tr.toUpperCase(),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: CustomTextStyles.labelMediumBeVietnamProGray90003
-                          .copyWith(
-                        height: 1.33,
-                      ),
+                      "Flat 25% off on Medicines*".tr.toUpperCase(),
+                      overflow: TextOverflow.visible,
+                      softWrap: false,
+                      style: TextStyle(
+                          fontSize: 10.2.fSize,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'be vietnam pro'),
                     ),
                   ),
                 ),
@@ -429,7 +518,7 @@ class HomeInitialPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 CustomImageView(
-                                  imagePath: ImageConstant.imgImage10,
+                                  imagePath: ImageConstant.imgPharmacy2,
                                   height: 110.h,
                                   width: 150.h,
                                   radius: BorderRadius.circular(12.h),
@@ -463,7 +552,7 @@ class HomeInitialPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 CustomImageView(
-                                  imagePath: ImageConstant.imgImage10,
+                                  imagePath: ImageConstant.imgPharmacy1,
                                   height: 110.h,
                                   width: 150.h,
                                   radius: BorderRadius.circular(12.h),
@@ -497,7 +586,7 @@ class HomeInitialPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 CustomImageView(
-                                  imagePath: ImageConstant.imgImage10,
+                                  imagePath: ImageConstant.imgPharmacy2,
                                   height: 110.h,
                                   width: 150.h,
                                   radius: BorderRadius.circular(12.h),
@@ -531,7 +620,7 @@ class HomeInitialPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 CustomImageView(
-                                  imagePath: ImageConstant.imgImage10,
+                                  imagePath: ImageConstant.imgPharmacy1,
                                   height: 110.h,
                                   width: 150.h,
                                   radius: BorderRadius.circular(12.h),
@@ -593,9 +682,9 @@ class HomeInitialPage extends StatelessWidget {
                     child: Divider(color: appTheme.gray600),
                   ),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                // SizedBox(
+                //   height: 10,
+                // ),
               ],
             ),
             Row(

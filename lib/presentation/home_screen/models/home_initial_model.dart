@@ -17,7 +17,7 @@ class HomeInitialModel {
         consultation: ImageConstant.imgTelevision.obs,
         consultation1: "Consulation".obs),
     ConsultationlistItemModel(
-        consultation: ImageConstant.imgThumbsUp.obs,
+        consultation: ImageConstant.imgHospital.obs,
         consultation1: "Hospital".obs),
     ConsultationlistItemModel(
         consultation: ImageConstant.imgCalendar.obs,
@@ -31,11 +31,23 @@ class HomeInitialModel {
     ListmedicinesItemModel(
         medicinesOne: ImageConstant.imgEllipse7.obs,
         medicinesThree: ImageConstant.imgClose.obs,
-        medicinesFour: "medines".obs),
-    ListmedicinesItemModel(medicinesFour: "Lab Test".obs),
-    ListmedicinesItemModel(medicinesFour: "Healthcare".obs),
-    ListmedicinesItemModel(medicinesFour: "Generics".obs),
-    ListmedicinesItemModel(medicinesFour: "Must Have".obs),
+        medicinesFour: "Medines".obs),
+    ListmedicinesItemModel(
+        medicinesOne: ImageConstant.imgEllipse8.obs,
+        medicinesThree: ImageConstant.imgLab.obs,
+        medicinesFour: "Lab Test".obs),
+    ListmedicinesItemModel(
+        medicinesOne: ImageConstant.imgEllipse9.obs,
+        medicinesThree: ImageConstant.imgCareTaking.obs,
+        medicinesFour: "Caretaking".obs),
+    ListmedicinesItemModel(
+        medicinesOne: ImageConstant.imgEllipse10.obs,
+        medicinesThree: ImageConstant.imgDoctor.obs,
+        medicinesFour: "Doctor \nConsultation".obs),
+    ListmedicinesItemModel(
+        medicinesOne: ImageConstant.imgEllipse11.obs,
+        medicinesThree: ImageConstant.imgAppointment.obs,
+        medicinesFour: "Offine \nAppointment".obs),
   ]);
 
   Rx<List<GridnutritionalItemModel>> gridnutritionalItemModel = Rx([
@@ -61,7 +73,25 @@ class HomeInitialModel {
         eighty: "80%".obs,
         offer: "Offer*".obs,
         onhealth: "On Health Products".obs,
-        homeopathy: "Homeopathy, Ayurvedic, Presonal Care & More".obs)
+        homeopathy: "Homeopathy,Ayurvedic, Presonal Care & More".obs),
+    SlideruptoItemModel(
+        upto: "Upto".obs,
+        eighty: "80%".obs,
+        offer: "Offer*".obs,
+        onhealth: "On Health Products".obs,
+        homeopathy: "Homeopathy,Ayurvedic, Presonal Care & More".obs),
+    SlideruptoItemModel(
+        upto: "Upto".obs,
+        eighty: "80%".obs,
+        offer: "Offer*".obs,
+        onhealth: "On Health Products".obs,
+        homeopathy: "Homeopathy,Ayurvedic, Presonal Care & More".obs),
+    SlideruptoItemModel(
+        upto: "Upto".obs,
+        eighty: "80%".obs,
+        offer: "Offer*".obs,
+        onhealth: "On Health Products".obs,
+        homeopathy: "Homeopathy,Ayurvedic, Presonal Care & More".obs),
   ]);
 
   Rx<List<ListaccucheckItemModel>> listaccucheckItemModel = Rx([

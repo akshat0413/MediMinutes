@@ -48,6 +48,7 @@ class ListaccucheckItemWidget extends StatelessWidget {
                 height: 32.h,
                 width: 108.h,
                 text: "lbl_add_to_cart".tr,
+                buttonStyle: CustomButtonStyles.fillPurple,
                 buttonTextStyle: theme.textTheme.bodyLarge!,
               )
             ],

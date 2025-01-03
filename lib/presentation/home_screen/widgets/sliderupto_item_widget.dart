@@ -56,12 +56,9 @@ class SlideruptoItemWidget extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 2.h),
-                          child: Text(
-                            slideruptoItemModelObj.eighty!.value,
-                            style: theme.textTheme.displaySmall,
-                          ),
+                        Text(
+                          slideruptoItemModelObj.eighty!.value,
+                          style: theme.textTheme.displaySmall,
                         )
                       ],
                     ),
@@ -69,10 +66,16 @@ class SlideruptoItemWidget extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerRight,
                     child: Padding(
-                      padding: EdgeInsets.only(right: 40.h),
+                      padding: EdgeInsets.only(right: 30.h),
                       child: Text(
-                        slideruptoItemModelObj.offer!.value,
-                        style: theme.textTheme.labelSmall,
+                        slideruptoItemModelObj.offer!.value.toUpperCase(),
+                        style: TextStyle(
+                            fontSize: 10.fSize,
+                            color: Color(
+                              0XFF161531,
+                            ),
+                            fontFamily: "Vietnam",
+                            fontWeight: FontWeight.w500),
                       ),
                     ),
                   ),
@@ -90,16 +93,16 @@ class SlideruptoItemWidget extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   SizedBox(
-                    width: 108.h,
-                    child: Text(
-                      slideruptoItemModelObj.homeopathy!.value,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: CustomTextStyles.labelSmallInterGray90003.copyWith(
-                        height: 1.25,
-                      ),
-                    ),
-                  )
+                      width: 108.h,
+                      child: Text(
+                        maxLines: 2,
+                        slideruptoItemModelObj.homeopathy!.value,
+                        style: TextStyle(
+                          fontFamily: "inter",
+                          fontSize: 8.fSize,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ))
                 ],
               ),
             ),

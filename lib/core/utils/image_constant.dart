@@ -6,13 +6,19 @@ class ImageConstant {
 // HomeScreen images
   static String imgBell = '$imagePath/img_bell.svg';
 
+  static String imgScooter = '$imagePath/img_home_scooter.svg';
+
+  static String imgText = '$imagePath/img_home_text.svg';
+
+  static String imgText2 = '$imagePath/img_home_text2.png';
+
   static String imgWallet = '$imagePath/img_wallet.svg';
 
   static String imgShape = '$imagePath/img_shape.png';
 
   static String imgClock = '$imagePath/img_clock.svg';
 
-  static String imgThumbsUp = '$imagePath/img_thumbs_up.svg';
+  static String imgHospital = '$imagePath/img_hospital.svg';
 
   static String imgSearch = '$imagePath/img_search.svg';
 
@@ -27,7 +33,23 @@ class ImageConstant {
 
   static String imgEllipse7 = '$imagePath/img_ellipse_7.png';
 
+  static String imgEllipse8 = '$imagePath/img_ellipse_8.svg';
+
+  static String imgEllipse9 = '$imagePath/img_ellipse_9.svg';
+
+  static String imgEllipse10 = '$imagePath/img_ellipse_10.svg';
+
+  static String imgEllipse11 = '$imagePath/img_ellipse_11.svg';
+
   static String imgClose = '$imagePath/img_close.svg';
+
+  static String imgCareTaking = '$imagePath/img_services_heart.svg';
+
+  static String imgAppointment = '$imagePath/img_services_note.svg';
+
+  static String imgDoctor = '$imagePath/img_services_tablet.svg';
+
+  static String imgLab = '$imagePath/img_services_tube.svg';
 
   static String imgGroup10 = '$imagePath/img_group_127.svg';
 
@@ -157,9 +179,15 @@ class ImageConstant {
 
   //static String imgFishOil = '$imagePath/img_fish_oil.png';
 
+// Search Screen
+  static String imgPharmacy1 = '$imagePath/img_pharmacy1.png';
+  static String imgPharmacy2 = '$imagePath/img_pharmacy2.png';
+  static String imgSearchDelivery = '$imagePath/img_search_delivery.svg';
+  static String imgClockPharma = '$imagePath/img_clock_pharma.svg';
+
 // Buy Screen
   static String imgBuyParacetamol = '$imagePath/paracetamol.jpeg';
-  static String imgBuyParacetamol2 = '$imagePath/paracetamol_2.jpg';
+  static String imgBuyParacetamol2 = '$imagePath/paracetamol_2.png';
   static String imgBuyParacetamol3 = '$imagePath/paracetamol_3.jpg';
   static String imgBuyKidney = '$imagePath/img_Kidneys.svg';
   static String imgFlashOn = '$imagePath/flash_on.png';
@@ -197,7 +225,6 @@ class ImageConstant {
   static String imgPhonepe = '$imagePath/phonepe.png';
   static String imgPaylater = '$imagePath/pay_later.png';
   static String imgPayOnDelivery = '$imagePath/cod.png';
-
 
 //Common images
   static String imgArrowLeftblack90001 =

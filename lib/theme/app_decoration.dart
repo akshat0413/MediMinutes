@@ -45,11 +45,11 @@ class AppDecoration {
         color: theme.colorScheme.onPrimaryContainer.withOpacity(0.8),
       );
 
-  static BoxDecoration get outlineBlack => BoxDecoration(
+  static BoxDecoration get outlineBlack900 => BoxDecoration(
         color: theme.colorScheme.onPrimaryContainer.withOpacity(1),
         boxShadow: [
           BoxShadow(
-            color: appTheme.black90001.withOpacity(0.1),
+            color: appTheme.black900.withOpacity(0.1),
             spreadRadius: 2.h,
             blurRadius: 2.h,
             offset: Offset(0, 0),
@@ -67,6 +67,28 @@ class AppDecoration {
             offset: Offset(12.63, 11.79),
           ),
         ],
+      );
+  static BoxDecoration get outlineBluegray100 => BoxDecoration(
+        color: theme.colorScheme.onPrimaryContainer,
+        border: Border.all(
+          color: appTheme.blueGray100,
+          width: 1.h,
+        ),
+      );
+
+  static BoxDecoration get outlinePrimaryContainer => BoxDecoration(
+        color: theme.colorScheme.onPrimaryContainer.withOpacity(0.3),
+        border: Border.all(
+          color: theme.colorScheme.primaryContainer,
+          width: 1.h,
+        ),
+      );
+  static BoxDecoration get outlinePrimaryContainer1 => BoxDecoration(
+        color: theme.colorScheme.onPrimaryContainer.withOpacity(0.3),
+        border: Border.all(
+            color: theme.colorScheme.primaryContainer,
+            width: 3.h,
+            strokeAlign: BorderSide.strokeAlignCenter),
       );
 
   static BoxDecoration get outlineGray => BoxDecoration(

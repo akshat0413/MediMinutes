@@ -16,6 +16,7 @@ import 'package:mediminutes/presentation/order_place/order_place_screen.dart';
 import 'package:mediminutes/presentation/profile/profile_screen.dart';
 import 'package:mediminutes/presentation/pyment_options/binding/payment_options_binding.dart';
 import 'package:mediminutes/presentation/pyment_options/payment_options_screen.dart';
+import 'package:mediminutes/presentation/search_screen/binding/search_screen.dart';
 import 'package:mediminutes/presentation/signup_screen/binding/signup_binding.dart';
 import 'package:mediminutes/presentation/signup_screen/signup_screen.dart';
 import 'package:mediminutes/presentation/splash_screen/binding/spleshscreen_binding.dart';
@@ -24,13 +25,17 @@ import 'package:mediminutes/presentation/splash_screen/spleshscreen_Screen.dart'
 import '../presentation/buy_screen/buy_screen2.dart';
 import '../presentation/cart_screen/cart_screen.dart';
 import '../presentation/cart_screen/cart_screen2.dart';
+import '../presentation/home_screen/search_screen.dart';
 import '../presentation/offer_zone_screen/binding/offer_zone_binding.dart';
 import '../presentation/profile/binding/order_place_binding.dart';
+import '../presentation/search_screen/search_screen.dart';
 
 class AppRoutes {
   static const String homeScreen = '/home_screen';
 
   static const String homeInitialPage = '/home_initial_page';
+
+  static const String searchScreen = '/search_screen';
 
   static const String profileScreen = '/profile_screen';
 
@@ -69,6 +74,16 @@ class AppRoutes {
       name: homeScreen,
       page: () => HomeScreen(),
       bindings: [HomeBinding()],
+    ),
+    GetPage(
+      name: searchScreen,
+      page: () => SearchScreen(),
+      bindings: [SearchScreenBinding()],
+    ),
+    GetPage(
+      name: profileScreen,
+      page: () => ProfileScreen(),
+      bindings: [ProfileScreenBinding()],
     ),
     GetPage(
       name: cartScreenEmpty,

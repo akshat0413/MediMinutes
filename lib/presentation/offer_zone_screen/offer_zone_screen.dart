@@ -25,7 +25,7 @@ class OfferZoneScreen extends GetWidget<OfferZoneController> {
           width: double.maxFinite,
           padding: EdgeInsets.only(
             left: 18.h,
-            top: 26.h,
+            top: 10.h,
             right: 18.h,
           ),
           child: Column(
@@ -46,17 +46,21 @@ class OfferZoneScreen extends GetWidget<OfferZoneController> {
   /// Section Widget
   PreferredSizeWidget _buildHeader() {
     return CustomAppBar(
+      styleType: Style.whiteA70001,
       leadingWidth: 70.h,
-      leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftblack90001,
-        onTap: () {
-          onTapArrowleftone();
+      leading: IconButton(
+        onPressed: () {
+          Get.back();
         },
+        icon: Icon(
+          Icons.reply,
+          color: Color(0XFF19543E),
+          size: 28.h,
+        ),
       ),
       title: AppbarTitle(
         text: "lbl_offer_zone".tr,
       ),
-      styleType: Style.bgFillGreen200,
     );
   }
 

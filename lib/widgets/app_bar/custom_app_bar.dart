@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 
-enum Style { bgFillGreen20001, bgFillGreen200, whiteA70001 }
+enum Style {
+  bgFillGreen20001,
+  bgFillGreen200,
+  whiteA70001,
+  bgOutlineBluegray100
+}
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   CustomAppBar(
@@ -60,6 +65,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       );
   _getStyle() {
     switch (styleType) {
+      case Style.bgOutlineBluegray100:
+        return Container(
+          height: 44.h,
+          width: 372.h,
+          decoration: BoxDecoration(
+              color: theme.colorScheme.onPrimaryContainer,
+              borderRadius:
+                  BorderRadius.circular(10.h) //theme.colorScheme.primary,
+              ),
+        );
       case Style.bgFillGreen20001:
         return Container(
           height: 1.h,
@@ -79,7 +94,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         );
       case Style.whiteA70001:
         return Container(
-          height: 72.h,
+          // height: 72.h,
           width: 390.h,
           decoration: BoxDecoration(
               color: appTheme.whiteA70001 //theme.colorScheme.primary,
